@@ -20,7 +20,7 @@ var Stack = function(){
       delete storage[counter];
       return value;
     }
-    
+
   };
 
   someInstance.size = function(){
