@@ -47,7 +47,18 @@ binarySearchTreeMethods.contains = function(value) {
 };
 
 binarySearchTreeMethods.depthFirstLog = function(cb) {
-
+  var check = function(node) {
+    cb(node.value);
+    // check if node has children
+    if (node.left) {
+      // if so, pass the child to cb
+      check(node.left);
+    }
+    if (node.right) {
+      check(node.right);
+    }
+  };
+  check(this);
 };
 
 /*
