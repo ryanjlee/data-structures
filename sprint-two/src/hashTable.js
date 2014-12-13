@@ -8,20 +8,31 @@ HashTable.prototype.insert = function(k, v){
   // check for info, if not there, set
   if (!this._storage.get(i)) {
     this._storage.set(i, [k, v]);
+  } else {
+    var tuple = this._storage.get(i);
+    tuple.push(k, v);
+    this._storage.set(i, tuple);
   }
-  var tuple = this._storage.get(i);
-  tuple.push(k, v);
-
 };
 
 HashTable.prototype.retrieve = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
-  return this._storage.get(i)[1];
+  var index = this._storage.get(i);
+  for (var i = 0; i < index.length; i++) {
+    if (index[i] === k) {
+      return index[i + 1];
+    }
+  }
 };
 
 HashTable.prototype.remove = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
-  this._storage.set(i, [null, null]);
+  var index = this._storage.get(i);
+  for (var i = 0; i < index.length; i++) {
+    if (index[i] === k) {
+      index[i + 1] = null;
+    }
+  }
 };
 
 
