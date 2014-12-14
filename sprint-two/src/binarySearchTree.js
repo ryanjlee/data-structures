@@ -63,4 +63,7 @@ binarySearchTreeMethods.depthFirstLog = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ *   .insert:        linear
+ *   .contains:      linear
+ *   .depthFirstLog: linear
  */

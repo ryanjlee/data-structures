@@ -1,10 +1,10 @@
 var Tree = function(value){
   var newTree = {};
   newTree.value = value;
+  newTree.children = [];
 
   newTree.addChild = treeMethods.addChild;
   newTree.contains = treeMethods.contains;
-  newTree.children = [];
 
   return newTree;
 };
@@ -21,16 +21,16 @@ treeMethods.addChild = function(value){
 };
 
 treeMethods.contains = function(target){
+
   // var searchNodes = function(node, found) {
   //   if (target === node.value) {
   //     return true;
   //   }
-  //   // iterate through children array
   //   for (var i = 0; i < node.children.length; i++) {
   //     return searchNodes(node.children[i]);
   //   }
-  //   return;
   // };
+
   // return searchNodes(this);
 
   var result = false;
@@ -53,4 +53,6 @@ treeMethods.contains = function(target){
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ *   .addChild: constant
+ *   .contains: linear
  */
