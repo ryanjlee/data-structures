@@ -9,9 +9,7 @@ HashTable.prototype.insert = function(k, v){
   if (!this._storage.get(i)) {
     this._storage.set(i, [k, v]);
   } else {
-    var tuple = this._storage.get(i);
-    tuple.push(k, v);
-    this._storage.set(i, tuple);
+    this._storage.get(i).push(k, v);
   }
 };
 
@@ -39,4 +37,7 @@ HashTable.prototype.remove = function(k){
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ *   .insert:   constant
+ *   .retrieve: constant
+ *   .remove:   constant
  */
