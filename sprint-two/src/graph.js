@@ -42,13 +42,13 @@ Graph.prototype.addEdge = function(fromNode, toNode){
 Graph.prototype.removeEdge = function(fromNode, toNode){
   for (var i = 0; i < this.storage[fromNode].length; i++) {
     if (this.storage[fromNode][i] === toNode) {
-      this.storage[fromNode][i].splice(i, 0);
+      this.storage[fromNode].splice(i, 1);
     }
   }
 
   for (var j = 0; j < this.storage[toNode].length; j++) {
     if (this.storage[toNode][j] === fromNode) {
-      this.storage[toNode][j].splice(j, 0);
+      this.storage[toNode].splice(j, 1);
     }
   }
 
